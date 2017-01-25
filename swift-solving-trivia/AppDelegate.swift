@@ -17,13 +17,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func solveTrivia(_ trivia: [String : String]) -> String {
         
         // Implement this function!
-        
-        return "Hi :D"
-        
+        var charMatch:Bool = false
+        var stateName = ""
+        for (state,capital) in trivia {
+            charMatch = false
+            for c1 in state.lowercased().characters {
+                if capital.lowercased().characters.contains(c1) {
+                    charMatch = true
+                    break
+                }
+            }
+            if !charMatch {
+                stateName = state
+            }
+        }
+        return stateName
     }
-    
-    
-    
-    
 }
 
